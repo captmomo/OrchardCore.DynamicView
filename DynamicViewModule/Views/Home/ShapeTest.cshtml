@@ -1,0 +1,11 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "BulmaLayout";
+}
+@model DataTablePartViewModel
+
+@await DisplayAsync(await New.DataTableShape(JsonData: Model.JsonData, Heading: DateTime.UtcNow.ToLongTimeString() ))
+
+    <shape type="TestShape" PropertyOne="@Model.JsonData.ToString()" PropertyTwo="@DateTime.UtcNow.ToLongTimeString()"/>

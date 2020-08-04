@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+@{
+
+    bool isMultiLevel = false;
+    bool isSingleLevel = false;
+
+    var converted = JsonConvert.DeserializeObject(Model?.JsonData);
+    if (converted is JObject)
+    {
+        isMultiLevel = true;
+    }
+    else if (converted is JArray)
+    {
+        isSingleLevel = true;
+    }
+    else
+    {
+        <div>Invalid data!</div>
+    }
+
+    DataTablePartViewModel dataTablePartViewModel = new DataTablePartViewModel();
+    if (Model != null)
+    {
+        dataTablePartViewModel.JsonData = Model.JsonData ?? "";
+    }
+}
+@{
+    if (!string.IsNullOrWhiteSpace(Model.Heading))
+    {
+        <p>This was rendered at @Model.Heading</p>
+    }
+}
+
+@if (isMultiLevel)
+{
+    Html.RenderPartial("_MultiDetails", dataTablePartViewModel);
+}
+else if (isSingleLevel) //might not be multiLevel nor singleLevel (if no data)
+{
+    Html.RenderPartial("_SingleDetails", dataTablePartViewModel);
+}

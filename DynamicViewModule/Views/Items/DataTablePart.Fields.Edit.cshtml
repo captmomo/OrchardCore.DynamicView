@@ -1,0 +1,8 @@
+@using DynamicViewModule.ViewModels;
+@model DataTablePartViewModel
+
+<div class="form-group">
+    <label asp-for="JsonData">@T["Json Data"]</label>
+    <input asp-for="JsonData" type="text" class="form-control content-preview-text" />
+    <span class="hint">@T["The Json Data to be rendered in a table"]</span>
+</div>

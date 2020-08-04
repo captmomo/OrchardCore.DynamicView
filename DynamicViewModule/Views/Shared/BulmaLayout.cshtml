@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="@Orchard.CultureName()">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@RenderTitleSegments(Site.SiteName, "before")</title>
+    <style asp-name="BulmaCss" at="Head"></style>
+    <resources type="Meta" />
+    <resources type="HeadLink" />
+    <resources type="HeadScript" />
+    <resources type="Stylesheet" />
+    @*<script src="~/Theme.Arcstone/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/Theme.Arcstone/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/Theme.Arcstone/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/Theme.Arcstone/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>*@
+    <span style="display:none">this is from my module</span>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            @RenderBody()
+        </div>
+
+    </section>
+</body>
+</html>
